@@ -1,4 +1,4 @@
-require "xml_security"
+require "xml_security_f"
 require "time"
 require "base64"
 require "zlib"
@@ -31,7 +31,7 @@ module OneLogin
 
         @options = options
         @response = decode_raw_response(response)
-        @document = XMLSecurity::SignedDocument.new(response)
+        @document = XMLSecurityF::SignedDocument.new(response)
       end
 
       def validate!

@@ -1,4 +1,4 @@
-require "xml_security"
+require "xml_security_f"
 require "time"
 require "nokogiri"
 
@@ -22,7 +22,7 @@ module OneLogin
         raise ArgumentError.new("Response cannot be nil") if response.nil?
         @options  = options
         @response = (response =~ /^</) ? response : Base64.decode64(response)
-        @document = XMLSecurity::SignedDocument.new(@response)
+        @document = XMLSecurityF::SignedDocument.new(@response)
       end
 
       def is_valid?

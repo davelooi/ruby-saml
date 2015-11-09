@@ -8,7 +8,7 @@ class RubySamlFTest < Test::Unit::TestCase
     end
 
     should "be able to parse a document which contains ampersands" do
-      XMLSecurity::SignedDocument.any_instance.stubs(:digests_match?).returns(true)
+      XMLSecurityF::SignedDocument.any_instance.stubs(:digests_match?).returns(true)
       OneLogin::RubySamlF::Response.any_instance.stubs(:validate_conditions).returns(true)
 
       response = OneLogin::RubySamlF::Response.new(ampersands_response)
@@ -120,7 +120,7 @@ class RubySamlFTest < Test::Unit::TestCase
         settings = OneLogin::RubySamlF::Settings.new
         response.settings = settings
         settings.idp_cert_fingerprint = "28:74:9B:E8:1F:E8:10:9C:A8:7C:A9:C3:E3:C5:01:6C:92:1C:B4:BA"
-        XMLSecurity::SignedDocument.any_instance.expects(:validate_signature).returns(true)
+        XMLSecurityF::SignedDocument.any_instance.expects(:validate_signature).returns(true)
         assert response.validate!
       end
 

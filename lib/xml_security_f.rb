@@ -31,7 +31,7 @@ require "digest/sha1"
 require "digest/sha2"
 require "onelogin/ruby-saml-f/validation_error"
 
-module XMLSecurity
+module XMLSecurityF
 
   class SignedDocument < REXML::Document
     C14N = "http://www.w3.org/2001/10/xml-exc-c14n#"
