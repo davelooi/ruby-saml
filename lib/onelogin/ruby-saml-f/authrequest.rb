@@ -6,7 +6,7 @@ require "rexml/document"
 require "rexml/xpath"
 
 module OneLogin
-  module RubySaml
+  module RubySamlF
   include REXML
     class Authrequest
       def create(settings, params = {})

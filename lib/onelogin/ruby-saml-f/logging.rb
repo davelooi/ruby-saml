@@ -1,9 +1,9 @@
 # Simplistic log class when we're running in Rails
 module OneLogin
-  module RubySaml
+  module RubySamlF
     class Logging
       def self.debug(message)
-        return if !!ENV["ruby-saml/testing"]
+        return if !!ENV["ruby-saml-f/testing"]
 
         if defined? Rails
           Rails.logger.debug message
@@ -13,7 +13,7 @@ module OneLogin
       end
 
       def self.info(message)
-        return if !!ENV["ruby-saml/testing"]
+        return if !!ENV["ruby-saml-f/testing"]
 
         if defined? Rails
           Rails.logger.info message

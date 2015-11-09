@@ -6,9 +6,9 @@ require 'timecop'
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-require 'ruby-saml'
+require 'ruby-saml-f'
 
-ENV["ruby-saml/testing"] = "1"
+ENV["ruby-saml-f/testing"] = "1"
 
 class Test::Unit::TestCase
   def fixture(document, base64 = true)

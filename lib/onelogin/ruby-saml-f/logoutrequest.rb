@@ -4,7 +4,7 @@ require "zlib"
 require "cgi"
 
 module OneLogin
-  module RubySaml
+  module RubySamlF
     include REXML
     class Logoutrequest
 

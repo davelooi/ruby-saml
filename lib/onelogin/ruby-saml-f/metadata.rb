@@ -7,7 +7,7 @@ require "uri"
 # IdP administrator.  The IdP will poll the URL and your settings
 # will be updated automatically
 module OneLogin
-  module RubySaml
+  module RubySamlF
     include REXML
     class Metadata
       def generate(settings)
