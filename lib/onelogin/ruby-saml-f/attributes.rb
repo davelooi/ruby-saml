@@ -1,5 +1,5 @@
 module OneLogin
-  module RubySaml
+  module RubySamlF
 
     # SAML2 Attributes. Parse the Attributes from the AttributeStatement of the SAML Response. 
     #

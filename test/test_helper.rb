@@ -2,7 +2,7 @@ require 'simplecov'
 
 SimpleCov.start do
   add_filter "test/"
-  add_filter "lib/onelogin/ruby-saml/logging.rb"
+  add_filter "lib/onelogin/ruby-saml-f/logging.rb"
 end
 
 require 'stringio'
@@ -17,10 +17,10 @@ Bundler.require :default, :test
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
-require 'onelogin/ruby-saml/logging'
+require 'onelogin/ruby-saml-f/logging'
 
 TEST_LOGGER = Logger.new(StringIO.new)
-OneLogin::RubySaml::Logging.logger = TEST_LOGGER
+OneLogin::RubySamlF::Logging.logger = TEST_LOGGER
 
 class Minitest::Test
   def fixture(document, base64 = true)

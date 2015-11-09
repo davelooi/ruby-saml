@@ -29,7 +29,7 @@ require "openssl"
 require 'nokogiri'
 require "digest/sha1"
 require "digest/sha2"
-require "onelogin/ruby-saml/validation_error"
+require "onelogin/ruby-saml-f/validation_error"
 
 module XMLSecurity
 
@@ -215,7 +215,7 @@ module XMLSecurity
         # check cert matches registered idp cert
         if fingerprint != idp_cert_fingerprint.gsub(/[^a-zA-Z0-9]/,"").downcase
           @errors << "Fingerprint mismatch"
-          return soft ? false : (raise OneLogin::RubySaml::ValidationError.new("Fingerprint mismatch"))
+          return soft ? false : (raise OneLogin::RubySamlF::ValidationError.new("Fingerprint mismatch"))
         end
       else
         if options[:cert]
@@ -224,7 +224,7 @@ module XMLSecurity
           if soft
             return false
           else
-            raise OneLogin::RubySaml::ValidationError.new("Certificate element missing in response (ds:X509Certificate) and not cert provided at settings")
+            raise OneLogin::RubySamlF::ValidationError.new("Certificate element missing in response (ds:X509Certificate) and not cert provided at settings")
           end          
         end
       end
@@ -313,7 +313,7 @@ module XMLSecurity
 
         unless digests_match?(hash, digest_value)
           @errors << "Digest mismatch"
-          return soft ? false : (raise OneLogin::RubySaml::ValidationError.new("Digest mismatch"))
+          return soft ? false : (raise OneLogin::RubySamlF::ValidationError.new("Digest mismatch"))
         end
       end
 
@@ -324,7 +324,7 @@ module XMLSecurity
       # verify signature
       unless cert.public_key.verify(signature_algorithm.new, signature, canon_string)
         @errors << "Key validation error"
-        return soft ? false : (raise OneLogin::RubySaml::ValidationError.new("Key validation error"))
+        return soft ? false : (raise OneLogin::RubySamlF::ValidationError.new("Key validation error"))
       end
 
       return true
